@@ -26,7 +26,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     private final Context context;
     private final OnCartChangedListener listener;
 
-    // Кэш для быстрого поиска лекарства по productId
     private final Map<Integer, Medicine> medicineMap = new HashMap<>();
 
     public interface OnCartChangedListener {
@@ -68,7 +67,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
                             medicine.getPrice() * item.getQuantity())
             );
 
-            // Фото
             if (medicine.getImageUrl() != null && !medicine.getImageUrl().isEmpty()) {
                 Picasso.get()
                         .load(medicine.getImageUrl())
@@ -87,7 +85,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
         holder.textQuantity.setText(String.valueOf(item.getQuantity()));
 
-        // Кнопки
         holder.btnAdd.setOnClickListener(v -> changeQuantity(item, item.getQuantity() + 1));
         holder.btnRemove.setOnClickListener(v -> {
             if (item.getQuantity() > 1) {

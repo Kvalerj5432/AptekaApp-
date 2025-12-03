@@ -1,6 +1,5 @@
 package com.example.aptekaappmobile;
 
-// CartItem.java
 public class CartItem {
     public int productId;
     public String name;

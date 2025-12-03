@@ -48,21 +48,18 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.OnCar
             public void onSuccess(Order order) {
                 orderId = order.getId();
 
-                // Сначала загружаем товары из корзины
                 client.getCartItems(orderId, new SupabaseClient.Callback<List<OrderItem>>() {
                     @Override
                     public void onSuccess(List<OrderItem> items) {
                         cartItems.clear();
                         cartItems.addAll(items);
 
-                        // Потом загружаем все лекарства, чтобы показать названия и фото
                         client.getMedicines(new SupabaseClient.Callback<List<Medicine>>() {
                             @Override
                             public void onSuccess(List<Medicine> medicines) {
                                 allMedicines.clear();
                                 allMedicines.addAll(medicines);
 
-                                // Теперь создаём адаптер с 4 параметрами
                                 adapter = new CartAdapter(cartItems, allMedicines, CartActivity.this, CartActivity.this);
                                 recyclerView.setAdapter(adapter);
 

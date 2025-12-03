@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements MedicineAdapter.C
 
         initViews();
         setupBottomNavigation();
-        showHomeFragment(); // Открываем главную сразу
+        showHomeFragment();
         updateCartBadge();
     }
 
@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity implements MedicineAdapter.C
 
     private void showHomeFragment() {
         loadMedicines();
-        // Убираем бейдж при возврате на главную (по желанию)
         bottomNavigation.getMenu().findItem(R.id.nav_home).setChecked(true);
     }
 
@@ -96,7 +95,6 @@ public class MainActivity extends AppCompatActivity implements MedicineAdapter.C
         updateCartBadge();
     }
 
-    // Обновление бейджа на иконке корзины
     public void updateCartBadge() {
         MenuItem cartItem = bottomNavigation.getMenu().findItem(R.id.nav_cart);
         if (cartItem == null) return;
@@ -119,7 +117,6 @@ public class MainActivity extends AppCompatActivity implements MedicineAdapter.C
 
             @Override
             public void onFailure(Exception error) {
-                // Тихо игнорируем
             }
         });
     }
@@ -127,9 +124,7 @@ public class MainActivity extends AppCompatActivity implements MedicineAdapter.C
     @Override
     protected void onResume() {
         super.onResume();
-        // Обновляем бейдж при возврате в MainActivity (например, после оформления заказа)
         updateCartBadge();
-        // Подсвечиваем активную вкладку
         bottomNavigation.getMenu().findItem(R.id.nav_home).setChecked(true);
     }
 }

@@ -17,7 +17,6 @@ public class Medicine {
         this.createdAt = createdAt;
     }
 
-    // Getters and setters
     public int getId() { return id; }
     public String getName() { return name; }
     public double getPrice() { return price; }
