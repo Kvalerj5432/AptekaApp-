@@ -15,7 +15,6 @@ public class User {
         this.isBlocked = isBlocked;
     }
 
-    // Getters
     public int getId() { return id; }
     public String getLogin() { return login; }
     public String getPassword() { return password; }
