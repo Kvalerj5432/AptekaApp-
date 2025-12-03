@@ -2,8 +2,6 @@ package com.example.aptekaappmobile;
 
 import java.util.Date;
 
-import java.util.Date;
-
 public class Order {
     private int id;
     private int userId;

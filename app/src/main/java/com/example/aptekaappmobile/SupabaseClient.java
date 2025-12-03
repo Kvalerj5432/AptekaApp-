@@ -45,7 +45,6 @@ public class SupabaseClient {
         return headers;
     }
 
-    // ==================== AUTH ====================
     public void signUp(String login, String password, String phone, Callback<User> callback) {
         String url = Constants.SUPABASE_URL + "users";
         JSONObject body = new JSONObject();
@@ -131,7 +130,6 @@ public class SupabaseClient {
         requestQueue.add(req);
     }
 
-    // ==================== MEDICINES ====================
     public void getMedicines(Callback<List<Medicine>> callback) {
         String url = Constants.SUPABASE_URL + "medicine?select=*";
         JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, url, null,
@@ -193,7 +191,6 @@ public class SupabaseClient {
         );
     }
 
-    // ==================== CART ====================
     public void getOrCreateCartOrder(int userId, Callback<Order> callback) {
         String url = Constants.SUPABASE_URL + "orders?user_id=eq." + userId + "&status=eq.cart";
         JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, url, null,
@@ -274,7 +271,6 @@ public class SupabaseClient {
         requestQueue.add(req);
     }
 
-    // ЕДИНСТВЕННЫЙ ПУБЛИЧНЫЙ МЕТОД (старый удалён!)
     public void updateQuantity(int itemId, int quantity, Callback<Void> callback) {
         String url = Constants.SUPABASE_URL + "order_items?id=eq." + itemId;
         JSONObject body = new JSONObject();
