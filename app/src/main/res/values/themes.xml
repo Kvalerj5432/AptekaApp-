@@ -1,9 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.AptekaAppMobile" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+    <style name="Theme.MyPharmacyApp" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <!-- Динамические цвета только для Android 12+ (API 31) -->
+        <item name="colorPrimary" tools:targetApi="31">@android:color/system_accent1_600</item>
+        <item name="colorPrimaryContainer" tools:targetApi="31">@android:color/system_accent1_100</item>
+        <item name="colorOnPrimary" tools:targetApi="31">@android:color/system_neutral1_10</item>
+        <item name="colorSecondary" tools:targetApi="31">@android:color/system_accent2_600</item>
+        <!-- Остальные цвета (работают везде) -->
+        <item name="colorSurface">#FFFFFF</item>
+        <item name="colorOnSurface">#1C2526</item>
+        <item name="colorError">#B00020</item>
+        <item name="shapeAppearanceMediumComponent">@style/CircleImage</item>
+
+
+        <!-- Статус-бар -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <!-- Для красоты карточек и кнопок -->
+        <item name="colorSurfaceVariant">#F5FFFD</item>
     </style>
 
-    <style name="Theme.AptekaAppMobile" parent="Base.Theme.AptekaAppMobile" />
 </resources>
